@@ -1,7 +1,7 @@
 /*
- * @lc app=leetcode.cn id=106 lang=cpp
+ * @lc app=leetcode.cn id=637 lang=cpp
  *
- * [106] 从中序与后序遍历序列构造二叉树
+ * [637] 二叉树的层平均值
  */
 
 // @lc code=start
@@ -17,13 +17,8 @@
  * };
  */
 class Solution {
-private:
-    TreeNode* traversal(vector<int>& inorder, vector<int>&postorder, int inorderBegin, int inooderEnd, int postorderBegin, int postorderEnd){
-        
-    }
-
 public:
-    TreeNode* buildTree(vector<int>& inorder, vector<int>& postorder) {
+    vector<double> averageOfLevels(TreeNode* root) {
 
     }
 };

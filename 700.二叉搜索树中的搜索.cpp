@@ -1,7 +1,7 @@
 /*
- * @lc app=leetcode.cn id=106 lang=cpp
+ * @lc app=leetcode.cn id=700 lang=cpp
  *
- * [106] 从中序与后序遍历序列构造二叉树
+ * [700] 二叉搜索树中的搜索
  */
 
 // @lc code=start
@@ -17,13 +17,18 @@
  * };
  */
 class Solution {
-private:
-    TreeNode* traversal(vector<int>& inorder, vector<int>&postorder, int inorderBegin, int inooderEnd, int postorderBegin, int postorderEnd){
-        
-    }
-
 public:
-    TreeNode* buildTree(vector<int>& inorder, vector<int>& postorder) {
+    TreeNode* searchBST(TreeNode* root, int val) {
+        //确定返回条件
+        if(root == NULL || root->val==val) return root;
+
+
+        //确定单层逻辑
+        if(root->val > val) return searchBST(root->left, val);
+
+        if(root->val < val) return searchBST(root->right, val);
+        
+        return NULL;
 
     }
 };

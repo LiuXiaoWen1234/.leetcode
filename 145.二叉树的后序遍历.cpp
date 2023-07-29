@@ -1,7 +1,7 @@
 /*
- * @lc app=leetcode.cn id=106 lang=cpp
+ * @lc app=leetcode.cn id=145 lang=cpp
  *
- * [106] 从中序与后序遍历序列构造二叉树
+ * [145] 二叉树的后序遍历
  */
 
 // @lc code=start
@@ -17,13 +17,19 @@
  * };
  */
 class Solution {
-private:
-    TreeNode* traversal(vector<int>& inorder, vector<int>&postorder, int inorderBegin, int inooderEnd, int postorderBegin, int postorderEnd){
-        
+public:
+    void traversal(TreeNode* cur, vector<int>& vec){
+        if(cur==nullptr) return;
+        traversal(cur->left, vec); //左子树
+        traversal(cur->right, vec);//右子树
+        vec.push_back(cur->val);
     }
 
-public:
-    TreeNode* buildTree(vector<int>& inorder, vector<int>& postorder) {
+
+    vector<int> postorderTraversal(TreeNode* root) {
+        vector<int> result;
+        traversal(root, result);
+        return result;
 
     }
 };

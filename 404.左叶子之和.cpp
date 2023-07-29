@@ -1,7 +1,7 @@
 /*
- * @lc app=leetcode.cn id=106 lang=cpp
+ * @lc app=leetcode.cn id=404 lang=cpp
  *
- * [106] 从中序与后序遍历序列构造二叉树
+ * [404] 左叶子之和
  */
 
 // @lc code=start
@@ -17,13 +17,20 @@
  * };
  */
 class Solution {
-private:
-    TreeNode* traversal(vector<int>& inorder, vector<int>&postorder, int inorderBegin, int inooderEnd, int postorderBegin, int postorderEnd){
-        
-    }
-
 public:
-    TreeNode* buildTree(vector<int>& inorder, vector<int>& postorder) {
+    int sumOfLeftLeaves(TreeNode* root) {
+        if(root==NULL) return 0;
+
+        int leftnum = sumOfLeftLeaves(root->left);
+        //找到左叶子
+        if(root->left!=NULL && root->left->left==NULL && root->left->right==NULL) 
+        leftnum = root->left->val;
+
+
+        
+        int rightnum = sumOfLeftLeaves(root->right);
+        return leftnum + rightnum;
+
 
     }
 };

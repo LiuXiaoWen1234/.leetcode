@@ -1,7 +1,7 @@
 /*
- * @lc app=leetcode.cn id=106 lang=cpp
+ * @lc app=leetcode.cn id=100 lang=cpp
  *
- * [106] 从中序与后序遍历序列构造二叉树
+ * [100] 相同的树
  */
 
 // @lc code=start
@@ -17,13 +17,13 @@
  * };
  */
 class Solution {
-private:
-    TreeNode* traversal(vector<int>& inorder, vector<int>&postorder, int inorderBegin, int inooderEnd, int postorderBegin, int postorderEnd){
-        
-    }
-
 public:
-    TreeNode* buildTree(vector<int>& inorder, vector<int>& postorder) {
+    bool isSameTree(TreeNode* p, TreeNode* q) {
+        if(p==NULL && q!=NULL) return false;
+        else if(p!=NULL && q==NULL) return false;
+        else if(p==NULL && q==NULL) return true;
+        else if(p->val != q->val) return false;
+        else return isSameTree(p->left,q->left) && isSameTree(p->right, q->right);
 
     }
 };
